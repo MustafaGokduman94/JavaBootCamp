@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Player {
-	private int Damage, Healthy, Money;
+	private int Damage, Healthy, Money, rHealthy;
 	private String name, cName;
 	İnventory inv;
 	Scanner scn = new Scanner(System.in);
@@ -9,10 +9,11 @@ public class Player {
 	public Player(String name) {
 
 		this.name = name;
+		this.inv = new İnventory();
 	}
 
 	public void selectCha() {
-		
+
 		switch (chaMenu()) {
 
 		case 1:
@@ -38,6 +39,7 @@ public class Player {
 		setDamage(dmg);
 		setHealthy(healt);
 		setMoney(mny);
+		setrHealthy(healt);
 
 	}
 
@@ -106,4 +108,21 @@ public class Player {
 		this.inv = inv;
 	}
 
+	public int getrHealthy() {
+		return rHealthy;
+	}
+
+	public void setrHealthy(int rHealthy) {
+		this.rHealthy = rHealthy;
+	}
+
+	public int getTotalDamage() {
+		return this.getDamage()+this.getInv().getDamage();
+		
+
+	}
+	public int getTotalArmor() {
+		return this.getInv().getArmor();
+	}
+	
 }
